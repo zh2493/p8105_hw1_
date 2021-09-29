@@ -1,4 +1,59 @@
 ---
 title: "p8105_hw1_zh2493"
-output: html_document
+output: github_document
 ---
+
+## Problem 1
+
+```{r}
+library(tidyverse)
+
+df = tibble(
+  vec_numeric = rnorm(10, mean = 0, sd = 1),
+  vec_logical = vec_numeric > 0,
+  vec_char = c("M", "Y", "N", "A", "M", "E", "I", "S", "Z", "Q"),
+  vec_factor = factor(c("blue", "blue", "yellow", "yellow", "yellow", "yellow", "green", "green", "green", "green"))
+)
+df
+mean1_df = mean(pull(df, vec_numeric))
+mean1_df
+
+mean2_df = mean(pull(df, vec_logical))
+mean2_df
+
+mean3_df = mean(pull(df, vec_char))
+mean3_df
+
+mean4_df = mean(pull(df, vec_factor))
+mean4_df
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
