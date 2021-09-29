@@ -15,6 +15,9 @@ df = tibble(
   vec_factor = factor(c("blue", "blue", "yellow", "yellow", "yellow", "yellow", "green", "green", "green", "green"))
 )
 df
+```
+
+```{r}
 mean1_df = mean(pull(df, vec_numeric))
 mean1_df
 
@@ -28,10 +31,36 @@ mean4_df = mean(pull(df, vec_factor))
 mean4_df
 
 ```
+There are two warning messages because column 3 and column 4 is not numeric or logical, so they do not have mean.
 
 
+```{r eval = FALSE}
+
+vec_logical = as.numeric(vec_logical)
+vec_char = as.numeric(vec_char)
+vec_factor = as.numeric(vec_factor)
+```
+when i run it, i find that the logical vector and the factor vector can turn to numeric. However, the character vector can not turn to numeric.
 
 
+##Problem 2
+
+```{r}
+library(tidyverse)
+data("penguins", package = "palmerpenguins")
+```
+The names of the data are `r names(penguins)`.
+
+The number of the row in the data is `r nrow(penguins)` and the number of the column in the data is `r ncol(penguins)`.
+
+The mean flipper length is `r mean(pull(penguins, flipper_length_mm), na.rm = TRUE)`.
+
+```{r}
+
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm)) +
+  geom_point(aes(color = species))
+ggsave("scatterplot.pdf")
+```
 
 
 
